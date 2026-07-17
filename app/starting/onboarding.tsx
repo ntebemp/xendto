@@ -1,6 +1,6 @@
 import CustomButton from "@/components/button";
+import HeaderImage from "@/components/header/HeaderImage";
 import { styles } from "@/constants/style/style";
-import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React, { JSX, useState } from "react";
 import {
@@ -66,18 +66,7 @@ export default function OnboardingScreen(): JSX.Element {
 
   return (
     <>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={previousSlide}>
-          <Ionicons name="chevron-back" size={22} color="#111827" />
-        </TouchableOpacity>
-
-        <Image
-          source={require("@/assets/images/logo.png")}
-          style={styles.logo}
-        />
-
-        <View style={{ width: 42 }} />
-      </View>
+      <HeaderImage onPress={previousSlide} />
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image source={slide.image} style={styles.image} />

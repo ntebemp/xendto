@@ -6,17 +6,26 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 type ButtonProps = {
   title: string;
   onPress?: () => void;
+  disabled?: boolean;
 };
 
-export default function CustomButton({ title, onPress }: ButtonProps) {
+export default function CustomButton({
+  title,
+  onPress,
+  disabled,
+}: ButtonProps) {
   return (
     <View style={[{ paddingBottom: useSafeAreaInsets().bottom }]}>
       <Pressable
         onPress={onPress}
-        style={({ pressed }) => [styles.container, pressed && styles.pressed]}
+        style={({ pressed }) => [
+          pressed && styles.pressed,
+          disabled && styles.buttonDisabled,
+        ]}
+        disabled={disabled}
       >
         <LinearGradient
-          colors={["#18C776", "#244e9b"]}
+          colors={["#18C776", "#2F8CD8"]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           style={styles.button}
@@ -33,24 +42,23 @@ const styles = StyleSheet.create({
     width: 342,
     alignSelf: "center",
   },
+
   button: {
     height: 57,
     borderRadius: 30,
-    // paddingLeft: 16,
-    // paddingRight: 16,
-    flexDirection: "row",
-    alignItems: "center",
+
     justifyContent: "center",
+    alignItems: "center",
 
     shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
     shadowOffset: {
       width: 0,
       height: 4,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 2,
 
-    elevation: 3,
+    elevation: 4,
   },
 
   pressed: {
@@ -62,5 +70,8 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     fontWeight: "500",
+  },
+  buttonDisabled: {
+    opacity: 0.6,
   },
 });

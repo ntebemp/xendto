@@ -1,9 +1,14 @@
-import { LinearGradient } from "expo-linear-gradient";
+import EnvelopeIcon from "@/assets/icons/Envelope.svg";
+import PhoneIcon from "@/assets/icons/Phone.svg";
+import UserIcon from "@/assets/icons/Profile.svg";
+import EyeIcon from "@/assets/icons/visibility.svg";
+import EyeCloseIcon from "@/assets/icons/visibility_off.svg";
+import CustomButton from "@/components/button";
+import CountryPicker from "@/components/CountryPicker";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   Image,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -24,6 +29,12 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [accepted, setAccepted] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [country, setCountry] = useState({
+    value: "CM",
+    code: "+237",
+  });
 
   return (
     <View style={styles.container}>
@@ -72,7 +83,9 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
             onChangeText={setFullName}
             style={styles.input}
           />
-          <Text>👤</Text>
+          <Text>
+            <UserIcon width={20} height={20} />
+          </Text>
         </View>
 
         {/* Email */}
@@ -85,48 +98,69 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
             onChangeText={setEmail}
             style={styles.input}
           />
-          <Text>✉️</Text>
+          <Text>
+            <EnvelopeIcon width={20} height={20} />
+          </Text>
         </View>
 
         {/* Phone */}
         <Text style={styles.label}>Phone Number:</Text>
         <View style={styles.inputContainer}>
-          <Text style={styles.countryCode}>🇨🇲 ▼</Text>
-
+          <CountryPicker onChange={(item) => setCountry(item)} />
           <TextInput
-            placeholder="+237"
+            placeholder="Phone number"
             keyboardType="phone-pad"
             value={phone}
             onChangeText={setPhone}
-            style={[styles.input, { marginLeft: 10 }]}
+            style={styles.input}
           />
-          <Text>📞</Text>
+          <Text>
+            <PhoneIcon width={20} height={20} />
+          </Text>
         </View>
 
         {/* Password */}
         <Text style={styles.label}>Password:</Text>
+
         <View style={styles.inputContainer}>
           <TextInput
-            placeholder="****************"
-            secureTextEntry
+            placeholder="Enter your password"
+            secureTextEntry={!showPassword}
             value={password}
             onChangeText={setPassword}
             style={styles.input}
           />
-          <Text>👁️</Text>
+
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+            {showPassword ? (
+              <EyeIcon width={20} height={20} />
+            ) : (
+              <EyeCloseIcon width={20} height={20} />
+            )}
+          </TouchableOpacity>
         </View>
 
         {/* Confirm Password */}
         <Text style={styles.label}>Password Confirm:</Text>
+
         <View style={styles.inputContainer}>
           <TextInput
-            placeholder="****************"
-            secureTextEntry
+            placeholder="Confirm your password"
+            secureTextEntry={!showConfirmPassword}
             value={passwordConfirm}
             onChangeText={setPasswordConfirm}
             style={styles.input}
           />
-          <Text>👁️</Text>
+
+          <TouchableOpacity
+            onPress={() => setShowConfirmPassword(!showConfirmPassword)}
+          >
+            {showConfirmPassword ? (
+              <EyeIcon width={20} height={20} />
+            ) : (
+              <EyeCloseIcon width={20} height={20} />
+            )}
+          </TouchableOpacity>
         </View>
 
         {/* Terms */}
@@ -146,25 +180,21 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
         </TouchableOpacity>
 
         {/* Register */}
-        <Pressable
-          onPress={onPress}
-          style={({ pressed }) => [styles.container, pressed && styles.pressed]}
-        >
-          <LinearGradient
-            colors={["#18C776", "#244e9b"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.registerButton}
-          >
-            <Text style={styles.registerText}>Register</Text>
-          </LinearGradient>
-        </Pressable>
 
+        <View style={{ paddingTop: 20 }}>
+          <CustomButton
+            title="Register"
+            onPress={() => router.push("/(auth)/otp-phone")}
+          />
+        </View>
         {/* Sign In */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>
             Have an account?{" "}
-            <Text style={styles.link} onPress={() => router.push("/login")}>
+            <Text
+              style={styles.link}
+              onPress={() => router.push("/(auth)/login")}
+            >
               Sign in
             </Text>
           </Text>
@@ -260,6 +290,7 @@ const styles = StyleSheet.create({
 
   link: {
     color: "#2F8CD8",
+    fontWeight: "600",
   },
 
   registerButton: {
@@ -343,6 +374,7 @@ const styles = StyleSheet.create({
 
   footerText: {
     color: "#666",
+    fontSize: 15,
   },
   pressed: {
     opacity: 0.85,

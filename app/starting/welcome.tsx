@@ -1,5 +1,5 @@
+import HeaderImage from "@/components/header/HeaderImage";
 import { styles } from "@/constants/style/style";
-import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import React, { JSX } from "react";
@@ -8,21 +8,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 export default function OnboardingScreen(): JSX.Element {
   return (
     <>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => router.back()}
-        >
-          <Ionicons name="chevron-back" size={22} color="#111827" />
-        </TouchableOpacity>
-
-        <Image
-          source={require("@/assets/images/logo.png")}
-          style={styles.logo}
-        />
-
-        <View style={{ width: 42 }} />
-      </View>
+      <HeaderImage onPress={() => router.back()} />
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image
@@ -38,7 +24,7 @@ export default function OnboardingScreen(): JSX.Element {
         <View style={styleWelcome.container}>
           <View style={styles.authButtons}>
             <LinearGradient
-              colors={["#18C776", "#244e9b"]}
+              colors={["#18C776", "#2F8CD8"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               style={[styles.loginButton, { flex: 1, marginRight: 10 }]}

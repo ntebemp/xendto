@@ -1,17 +1,16 @@
+import Logo from "@/assets/images/logo.svg";
 import CustomButton from "@/components/button";
-import React, { useState } from "react";
-import {
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
+import React, { useState } from "react";
+import {
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 
 const LANGUAGES = [
   { id: "en", label: "English", country: "UNITED STATES" },
@@ -123,11 +122,7 @@ const Starting = () => {
     <View style={styles.screen}>
       {/* Header */}
       <View style={styles.header}>
-        <Image
-          source={require("@/assets/images/logo.png")}
-          style={styles.reactLogo}
-          resizeMode="contain"
-        />
+        <Logo style={styles.reactLogo} />
       </View>
 
       {/* Contenu central */}

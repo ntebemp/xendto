@@ -1,35 +1,23 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import BottomNavigation from "@/components/home/BottomNavigation";
+import { Tabs } from "expo-router";
+import React from "react";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+      }}
+      // Remplace entièrement la barre d'onglets par défaut par notre
+      // composant custom. React Navigation lui passe automatiquement
+      // { state, descriptors, navigation, insets }.
+      tabBar={(props) => <BottomNavigation {...props} />}
+    >
+      <Tabs.Screen name="home" options={{ title: "Home" }} />
+      <Tabs.Screen name="history" options={{ title: "History" }} />
+      <Tabs.Screen name="transfer" options={{ title: "Send" }} />
+      <Tabs.Screen name="cards" options={{ title: "Cards" }} />
+      <Tabs.Screen name="profile" options={{ title: "Profile" }} />
     </Tabs>
   );
 }

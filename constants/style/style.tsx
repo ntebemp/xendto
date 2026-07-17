@@ -148,3 +148,120 @@ export const styles = StyleSheet.create({
     paddingBottom: 60,
   },
 });
+
+export const stylesOTP = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF",
+    paddingHorizontal: 24,
+    paddingTop: 55,
+  },
+  containerButton: {
+    flex: 1,
+    backgroundColor: "#FFF",
+    paddingHorizontal: 25,
+    paddingTop: 60,
+    paddingBottom: 20,
+  },
+
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingTop: 60,
+    paddingBottom: 20,
+
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+
+    elevation: 3,
+  },
+  backButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    borderWidth: 1,
+    borderColor: "#E5E7EB",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFF",
+  },
+
+  backIcon: {
+    fontSize: 28,
+    color: "#111",
+  },
+
+  headerTitle: {
+    fontWeight: "700",
+    fontSize: 20,
+    color: "#111",
+  },
+
+  image: {
+    // width: 180,
+    // height: 180,
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginBottom: 25,
+  },
+
+  description: {
+    textAlign: "center",
+    color: "#6B7280",
+    lineHeight: 22,
+    marginBottom: 35,
+  },
+
+  otpContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 40,
+  },
+
+  otpInput: {
+    width: 65,
+    height: 65,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#DCE8F3",
+    backgroundColor: "#F5FAFE",
+    textAlign: "center",
+    fontSize: 24,
+    fontWeight: "700",
+  },
+
+  button: {
+    height: 58,
+    borderRadius: 29,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  buttonText: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "600",
+  },
+
+  resend: {
+    textAlign: "center",
+    marginTop: 30,
+    color: "#666",
+  },
+
+  resendLink: {
+    color: "#2F8CD8",
+    fontWeight: "600",
+  },
+  pressed: {
+    opacity: 0.85,
+    transform: [{ scale: 0.98 }],
+  },
+});
