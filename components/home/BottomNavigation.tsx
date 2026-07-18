@@ -23,9 +23,11 @@ const TAB_CONFIG: Record<
     label: "History",
     icon: (color) => <Feather name="clock" size={22} color={color} />,
   },
-  cards: {
-    label: "Cards",
-    icon: (color) => <Ionicons name="card-outline" size={22} color={color} />,
+  institution: {
+    label: "Institutions",
+    icon: (color) => (
+      <Ionicons name="business-outline" size={22} color={color} />
+    ),
   },
   profile: {
     label: "Profile",
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
   item: {
     alignItems: "center",
     justifyContent: "center",
-    width: 60,
+    width: 70,
   },
 
   activeIcon: {

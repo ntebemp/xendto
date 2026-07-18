@@ -60,6 +60,7 @@ export default function KYCStep1Screen() {
             value={fullName}
             onChangeText={setFullName}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
         </View>
 
@@ -73,6 +74,7 @@ export default function KYCStep1Screen() {
             value={birthday}
             onChangeText={setBirthday}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
 
           <CalendarIcon width={18} height={18} />
@@ -96,6 +98,7 @@ export default function KYCStep1Screen() {
             value={town}
             onChangeText={setTown}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
         </View>
 
@@ -109,6 +112,7 @@ export default function KYCStep1Screen() {
             value={address}
             onChangeText={setAddress}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
         </View>
 
@@ -123,6 +127,7 @@ export default function KYCStep1Screen() {
             onChangeText={setPostalCode}
             keyboardType="number-pad"
             style={styles.input}
+            placeholderTextColor="#444444"
           />
         </View>
 

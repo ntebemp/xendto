@@ -82,6 +82,7 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
             value={fullName}
             onChangeText={setFullName}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
           <Text>
             <UserIcon width={20} height={20} />
@@ -97,6 +98,7 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
             value={email}
             onChangeText={setEmail}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
           <Text>
             <EnvelopeIcon width={20} height={20} />
@@ -113,6 +115,7 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
             value={phone}
             onChangeText={setPhone}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
           <Text>
             <PhoneIcon width={20} height={20} />
@@ -129,6 +132,7 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
             value={password}
             onChangeText={setPassword}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
 
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
@@ -150,6 +154,7 @@ export default function RegisterScreen({ onPress }: ButtonProps) {
             value={passwordConfirm}
             onChangeText={setPasswordConfirm}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
 
           <TouchableOpacity

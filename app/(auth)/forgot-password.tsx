@@ -40,6 +40,7 @@ export default function ForgotPasswordScreen() {
             value={email}
             onChangeText={setEmail}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
 
           <EnvelopeIcon width={20} height={20} />

@@ -1,29 +1,20 @@
-import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 type HeaderProps = {
   headerTitle: string;
-  onPress?: () => void;
-  onPressSkip?: () => void;
 };
 
-const HeaderSkip = ({ headerTitle, onPress, onPressSkip }: HeaderProps) => {
+const HeaderSimple = ({ headerTitle }: HeaderProps) => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity style={styles.backButton} onPress={onPress}>
-        <Ionicons name="chevron-back" size={22} color="#111" />
-      </TouchableOpacity>
-
       <Text style={styles.headerTitle}>{headerTitle}</Text>
 
-      <TouchableOpacity onPress={onPressSkip}>
-        <Text style={styles.skip}>Skip</Text>
-      </TouchableOpacity>
+      <View style={{ width: 40 }} />
     </View>
   );
 };
 
-export default HeaderSkip;
+export default HeaderSimple;
 
 const styles = StyleSheet.create({
   headerTitle: {
@@ -33,9 +24,8 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
     paddingHorizontal: 20,
     paddingTop: 50,
     paddingBottom: 20,
@@ -60,10 +50,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFF",
-  },
-  skip: {
-    fontSize: 15,
-    color: "#9CA3AF",
-    fontWeight: "500",
   },
 });

@@ -91,6 +91,7 @@ export default function LoginScreen() {
             value={email}
             onChangeText={setEmail}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
 
           <EnvelopeIcon width={20} height={20} />
@@ -107,6 +108,7 @@ export default function LoginScreen() {
             value={phone}
             onChangeText={setPhone}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
           <Text>
             <PhoneIcon width={20} height={20} />
@@ -124,6 +126,7 @@ export default function LoginScreen() {
             value={password}
             onChangeText={setPassword}
             style={styles.input}
+            placeholderTextColor="#444444"
           />
 
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>

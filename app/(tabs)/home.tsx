@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 import BalanceCard from "@/components/home/BalanceCard";
 import HomeHeader from "@/components/home/HomeHeader";
@@ -9,10 +9,9 @@ import ReferralCard from "@/components/home/ReferralCard";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <HomeHeader />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <HomeHeader />
-
         <BalanceCard />
 
         <QuickActions />
@@ -23,7 +22,7 @@ export default function HomeScreen() {
       </ScrollView>
 
       {/* <BottomNavigation /> */}
-    </SafeAreaView>
+    </View>
   );
 }
 

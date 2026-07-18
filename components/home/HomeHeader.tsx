@@ -41,7 +41,8 @@ export default function HomeHeader() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    paddingTop: 50,
+    paddingBottom: 20,
 
     paddingHorizontal: 22,
 

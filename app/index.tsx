@@ -8,10 +8,6 @@ export default function HomeScreen() {
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} edges={["top"]}>
         <Starting />
-        {/* <ThemedView style={styles.titleContainer}>
-            <ThemedText type="title">Welcome!</ThemedText>
-            <HelloWave />
-          </ThemedView> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );
